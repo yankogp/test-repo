@@ -1,7 +1,6 @@
 name: Actions
-  on:
-    push: [main]
-
+  on:[push]
+  
   jobs:
     context:
       runs-on: ubuntu-latest
