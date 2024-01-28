@@ -1,8 +1,17 @@
-name: GitHub Actions
-on: [push]
+Name: Starter Workflow Demo
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
 jobs:
   build:
-    name: For Example
     runs-on: ubuntu-latest
+
     steps:
-      
+      - uses: actions/checkout@v3
+
+      - name: demo workflow job
+        run: echo This is a demo start workflow
