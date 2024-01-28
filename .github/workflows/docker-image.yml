@@ -4,8 +4,8 @@ on: [push]
 jobs:
   build:
   name: For Example
-    runs-on: ubuntu-latest
-    steps:
+  runs-on: ubuntu-latest
+  steps:
     
 
   test2: 
