@@ -7,7 +7,7 @@ jobs:
     name: Build image
     runs-on: ubuntu-latest
     steps:
-      - uses: mr-smithers-excellent/docker-build-push@v4
+      - uses: mr-smithers-excellent/docker-build-push@v3
         with:
           image: yankogp/test
           registry: docker.io
