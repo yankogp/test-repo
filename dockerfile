@@ -1,5 +1,5 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-COPY 2048/.
+COPY 2048/. .
 
 EXPOSE 80
