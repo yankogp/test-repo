@@ -1,14 +1,17 @@
-name: Node Continuous Integration
+name: GitHub Actions
 
-on:
-  push:
-    branches: [ main ]
-
-
+on: [push]
+   
 jobs:
-  test_pull_request:
-    runs-on: ubuntu-latest
+  name: Build and Push Docker Image
+    runs-on: ubuntu-latest    
     steps:
-      - uses: actions/checkout@v2
+    - uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+        image: yankogp/test
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
       
         
