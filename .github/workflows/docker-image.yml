@@ -1,5 +1,6 @@
 name: Actions
-  on: push 
+  on:
+    push: [main]
 
   jobs:
     context:
@@ -15,3 +16,5 @@ name: Actions
           repository: yankogp/test          
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+        
+      
