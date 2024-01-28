@@ -1,18 +1,19 @@
-name: Docker Image CI
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+name: GitHub Actions
+run-name: GitHub Actions 
+on: [push]
 jobs:
   build:
+    
+
+  test2: 
+    name: Build and Push Docker Image
     runs-on: ubuntu-latest    
-    name: Build and Push Docker image   
-    uses: mr-smithers-excellent/docker-build-push@v4
-    with: 
+    steps:
+    - uses: mr-smithers-excellent/docker-build-push@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
         image: yankogp/test
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-      
