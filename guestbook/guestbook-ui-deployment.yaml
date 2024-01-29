@@ -1,20 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
-spec:
-  replicas: 1
-  revisionHistoryLimit: 3
+  name: myapp
+spec:  
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: myapp
+  replicas: 1 
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: myapp
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - image: yankogp/test
         ports:
         - containerPort: 80
