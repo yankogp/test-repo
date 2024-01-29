@@ -14,5 +14,6 @@ spec:
     spec:
       containers:
       - image: yankogp/test
+        name: myapp
         ports:
         - containerPort: 80
