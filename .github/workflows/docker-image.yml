@@ -27,3 +27,18 @@ jobs:
         with:
           push: true
           tags: yankogp/test
+
+
+  secret-checker:
+    runs-on: ubuntu-latest
+    name: Vulnerabilities check
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Check for vulnerabilities
+        id: checks
+        uses: maddygoround/secretduty@v1.3
+        with:
+          severity: "['CRITICAL','MAJOR']"
+      - name: Get results of scan
+        run: echo "Scan Results - ${{ steps.checks.outputs.result }}"      
