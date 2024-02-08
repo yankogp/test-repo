@@ -29,16 +29,15 @@ jobs:
           tags: yankogp/test
 
 
-  secret-checker:
+  
+  scan:
+    name: gitleaks    
     runs-on: ubuntu-latest
-    name: Vulnerabilities check
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Check for vulnerabilities
-        id: checks
-        uses: maddygoround/secretduty@v1.6
+      - uses: actions/checkout@v3
         with:
-          severity: "['CRITICAL','MAJOR']"
-      - name: Get results of scan
-        run: echo "Scan Results - ${{ steps.checks.outputs.result }}"      
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
